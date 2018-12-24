@@ -194,7 +194,7 @@
                                     <action selector="handleFindLocationButtonTap:" destination="I0R-PI-ku7" eventType="touchUpInside" id="Zah-Kk-lVb"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4zr-dY-RM5">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="4zr-dY-RM5">
                                 <rect key="frame" x="48" y="240" width="279" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="YUg-Hd-0Nu"/>
@@ -242,41 +242,74 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fi5-hF-wcF">
-                                <rect key="frame" x="16" y="595" width="343" height="48"/>
-                                <color key="backgroundColor" red="0.20392156862745098" green="0.59607843137254901" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="Fuf-j0-v9s"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="FINISH"/>
-                                <connections>
-                                    <action selector="handleFinishButtonTap:" destination="iAt-CX-Ofy" eventType="touchUpInside" id="GOr-cR-yin"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fDS-IS-hAk">
-                                <rect key="frame" x="48" y="88" width="279" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="lNh-Ut-7Uh"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="wJi-FB-tCS">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fy2-XR-eeS">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fDS-IS-hAk">
+                                                <rect key="frame" x="16" y="229.5" width="343" height="48"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="lNh-Ut-7Uh"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="fDS-IS-hAk" firstAttribute="leading" secondItem="fy2-XR-eeS" secondAttribute="leading" constant="16" id="GEg-CO-WrF"/>
+                                            <constraint firstAttribute="bottom" secondItem="fDS-IS-hAk" secondAttribute="bottom" constant="24" id="Vkq-ye-MlR"/>
+                                            <constraint firstAttribute="trailing" secondItem="fDS-IS-hAk" secondAttribute="trailing" constant="16" id="x9s-L5-eaO"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="19O-xQ-3aE">
+                                        <rect key="frame" x="0.0" y="301.5" width="375" height="301.5"/>
+                                        <subviews>
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YFF-mK-Az6">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
+                                            </mapView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fi5-hF-wcF">
+                                                <rect key="frame" x="16" y="229.5" width="343" height="48"/>
+                                                <color key="backgroundColor" red="0.20392156862745098" green="0.59607843137254901" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="Fuf-j0-v9s"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="FINISH"/>
+                                                <connections>
+                                                    <action selector="handleFinishButtonTap:" destination="iAt-CX-Ofy" eventType="touchUpInside" id="GOr-cR-yin"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="YFF-mK-Az6" secondAttribute="bottom" id="05b-go-cJL"/>
+                                            <constraint firstItem="fi5-hF-wcF" firstAttribute="leading" secondItem="19O-xQ-3aE" secondAttribute="leading" constant="16" id="JAO-Sc-zzT"/>
+                                            <constraint firstAttribute="trailing" secondItem="fi5-hF-wcF" secondAttribute="trailing" constant="16" id="KC9-dy-hSF"/>
+                                            <constraint firstAttribute="bottom" secondItem="fi5-hF-wcF" secondAttribute="bottom" constant="24" id="Nxr-sr-gOq"/>
+                                            <constraint firstItem="YFF-mK-Az6" firstAttribute="top" secondItem="19O-xQ-3aE" secondAttribute="top" id="TOT-Bl-ZOJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="YFF-mK-Az6" secondAttribute="trailing" id="puv-YC-tLu"/>
+                                            <constraint firstItem="YFF-mK-Az6" firstAttribute="leading" secondItem="19O-xQ-3aE" secondAttribute="leading" id="yPH-UB-qzK"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fDS-IS-hAk" firstAttribute="top" secondItem="16i-kb-E3B" secondAttribute="top" constant="24" id="JVn-az-CT5"/>
-                            <constraint firstItem="16i-kb-E3B" firstAttribute="bottom" secondItem="fi5-hF-wcF" secondAttribute="bottom" constant="24" id="SAd-kV-IQY"/>
-                            <constraint firstItem="16i-kb-E3B" firstAttribute="trailing" secondItem="fDS-IS-hAk" secondAttribute="trailing" constant="48" id="XQc-j4-ak6"/>
-                            <constraint firstItem="16i-kb-E3B" firstAttribute="trailing" secondItem="fi5-hF-wcF" secondAttribute="trailing" constant="16" id="b17-9x-oDO"/>
-                            <constraint firstItem="fDS-IS-hAk" firstAttribute="leading" secondItem="16i-kb-E3B" secondAttribute="leading" constant="48" id="tuv-9c-NUx"/>
-                            <constraint firstItem="fi5-hF-wcF" firstAttribute="leading" secondItem="16i-kb-E3B" secondAttribute="leading" constant="16" id="vfn-jV-hP7"/>
+                            <constraint firstItem="wJi-FB-tCS" firstAttribute="trailing" secondItem="16i-kb-E3B" secondAttribute="trailing" id="UMT-Zu-Z1X"/>
+                            <constraint firstAttribute="bottom" secondItem="wJi-FB-tCS" secondAttribute="bottom" id="V8y-Nn-rMP"/>
+                            <constraint firstItem="wJi-FB-tCS" firstAttribute="leading" secondItem="16i-kb-E3B" secondAttribute="leading" id="igI-aa-FxX"/>
+                            <constraint firstItem="wJi-FB-tCS" firstAttribute="top" secondItem="16i-kb-E3B" secondAttribute="top" id="m8C-9k-iwY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="16i-kb-E3B"/>
                     </view>
                     <connections>
                         <outlet property="linkTextField" destination="fDS-IS-hAk" id="i8S-Vv-hpR"/>
+                        <outlet property="mapView" destination="YFF-mK-Az6" id="Qoj-MW-NXZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B3f-5B-0Ec" userLabel="First Responder" sceneMemberID="firstResponder"/>

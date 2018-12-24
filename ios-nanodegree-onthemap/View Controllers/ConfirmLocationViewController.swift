@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import MapKit
 
 class ConfirmLocationViewController: UIViewController {
 
+    // MARK: - Properties
+    public var location: CLLocation?
+    
     // MARK: - IBOutlets
     @IBOutlet weak var linkTextField: UITextField!
+    @IBOutlet weak var mapView: MKMapView!
     
     // MARK: - IBActions
     @IBAction func handleFinishButtonTap(_ sender: UIButton) {
@@ -21,5 +26,14 @@ class ConfirmLocationViewController: UIViewController {
     // MARK: - VIew Controller
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let location = location {
+            let pin = MKPointAnnotation()
+            pin.coordinate = location.coordinate
+
+            self.mapView.setCenter(location.coordinate, animated: true)
+            self.mapView.camera.altitude = 4096
+            self.mapView.addAnnotation(pin)
+        }
     }
 }
