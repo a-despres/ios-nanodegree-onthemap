@@ -16,6 +16,8 @@
 		A15E911721D146260005CAF3 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E911621D146260005CAF3 /* TableViewController.swift */; };
 		A15E911921D1466A0005CAF3 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E911821D1466A0005CAF3 /* AddLocationViewController.swift */; };
 		A15E911B21D148FB0005CAF3 /* ConfirmLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E911A21D148FB0005CAF3 /* ConfirmLocationViewController.swift */; };
+		A15E911E21D154410005CAF3 /* TableViewController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E911D21D154410005CAF3 /* TableViewController+UITableViewDelegate.swift */; };
+		A15E912021D154AF0005CAF3 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E911F21D154AF0005CAF3 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		A15E911621D146260005CAF3 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		A15E911821D1466A0005CAF3 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		A15E911A21D148FB0005CAF3 /* ConfirmLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmLocationViewController.swift; sourceTree = "<group>"; };
+		A15E911D21D154410005CAF3 /* TableViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
+		A15E911F21D154AF0005CAF3 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +82,7 @@
 				A15E911A21D148FB0005CAF3 /* ConfirmLocationViewController.swift */,
 				A15E910021D142E80005CAF3 /* LoginViewController.swift */,
 				A15E911021D145470005CAF3 /* MapViewController.swift */,
-				A15E911621D146260005CAF3 /* TableViewController.swift */,
+				A15E911C21D153E20005CAF3 /* TableViewController */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -90,6 +94,16 @@
 				A15E910721D142EB0005CAF3 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		A15E911C21D153E20005CAF3 /* TableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A15E911F21D154AF0005CAF3 /* TableViewCell.swift */,
+				A15E911621D146260005CAF3 /* TableViewController.swift */,
+				A15E911D21D154410005CAF3 /* TableViewController+UITableViewDelegate.swift */,
+			);
+			path = TableViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,10 +178,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A15E911121D145470005CAF3 /* MapViewController.swift in Sources */,
+				A15E912021D154AF0005CAF3 /* TableViewCell.swift in Sources */,
 				A15E910121D142E80005CAF3 /* LoginViewController.swift in Sources */,
 				A15E911B21D148FB0005CAF3 /* ConfirmLocationViewController.swift in Sources */,
 				A15E911921D1466A0005CAF3 /* AddLocationViewController.swift in Sources */,
 				A15E90FF21D142E80005CAF3 /* AppDelegate.swift in Sources */,
+				A15E911E21D154410005CAF3 /* TableViewController+UITableViewDelegate.swift in Sources */,
 				A15E911721D146260005CAF3 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

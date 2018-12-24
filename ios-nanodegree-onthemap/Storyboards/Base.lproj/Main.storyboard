@@ -90,7 +90,55 @@
                     <view key="view" contentMode="scaleToFill" id="46A-QL-9tF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AlY-HI-ub0">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="64" id="ZAP-nc-XjQ" customClass="TableViewCell" customModule="ios_nanodegree_onthemap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="64"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZAP-nc-XjQ" id="rcj-Ii-U5h">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CJx-TW-P14">
+                                                    <rect key="frame" x="87.5" y="21.5" width="45" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qC1-Tv-oXQ">
+                                                    <rect key="frame" x="16" y="8" width="47.5" height="47.5"/>
+                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="qC1-Tv-oXQ" secondAttribute="height" multiplier="1:1" id="Skj-yP-Pmg"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qC1-Tv-oXQ" firstAttribute="centerY" secondItem="rcj-Ii-U5h" secondAttribute="centerY" id="UDM-y8-fh9"/>
+                                                <constraint firstItem="qC1-Tv-oXQ" firstAttribute="height" secondItem="rcj-Ii-U5h" secondAttribute="height" multiplier="0.75" id="hlY-CW-YvM"/>
+                                                <constraint firstItem="CJx-TW-P14" firstAttribute="leading" secondItem="qC1-Tv-oXQ" secondAttribute="trailing" constant="24" id="oae-h0-gJD"/>
+                                                <constraint firstItem="qC1-Tv-oXQ" firstAttribute="leading" secondItem="rcj-Ii-U5h" secondAttribute="leading" constant="16" id="tXz-pU-NkH"/>
+                                                <constraint firstItem="CJx-TW-P14" firstAttribute="centerY" secondItem="rcj-Ii-U5h" secondAttribute="centerY" id="toj-Mx-gQ5"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="lCb-aS-swr" id="HgO-Xw-gUM"/>
+                                    <outlet property="delegate" destination="lCb-aS-swr" id="pwQ-Kr-SL4"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2Fn-aT-ccc" firstAttribute="trailing" secondItem="AlY-HI-ub0" secondAttribute="trailing" id="5Ar-gR-v9i"/>
+                            <constraint firstItem="AlY-HI-ub0" firstAttribute="leading" secondItem="2Fn-aT-ccc" secondAttribute="leading" id="T3D-qZ-dUT"/>
+                            <constraint firstItem="2Fn-aT-ccc" firstAttribute="bottom" secondItem="AlY-HI-ub0" secondAttribute="bottom" id="U5Y-zr-WwM"/>
+                            <constraint firstItem="AlY-HI-ub0" firstAttribute="top" secondItem="2Fn-aT-ccc" secondAttribute="top" id="dsK-HR-ILW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2Fn-aT-ccc"/>
                     </view>
                     <navigationItem key="navigationItem" title="On the Map" id="fjm-1K-R4t">
@@ -242,7 +290,21 @@
                     <view key="view" contentMode="scaleToFill" id="7nW-lC-crp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CaU-ey-8Jk">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <connections>
+                                    <outlet property="delegate" destination="QKJ-qL-I9b" id="7Md-oi-x8g"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PXL-a3-Mhv" firstAttribute="bottom" secondItem="CaU-ey-8Jk" secondAttribute="bottom" id="WLC-EA-HlZ"/>
+                            <constraint firstItem="CaU-ey-8Jk" firstAttribute="leading" secondItem="PXL-a3-Mhv" secondAttribute="leading" id="ktd-KF-OXN"/>
+                            <constraint firstItem="CaU-ey-8Jk" firstAttribute="top" secondItem="PXL-a3-Mhv" secondAttribute="top" id="tT8-Eu-YNb"/>
+                            <constraint firstItem="PXL-a3-Mhv" firstAttribute="trailing" secondItem="CaU-ey-8Jk" secondAttribute="trailing" id="ueo-rj-cLk"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PXL-a3-Mhv"/>
                     </view>
                     <navigationItem key="navigationItem" title="On the Map" id="JJd-qW-zer">
@@ -348,6 +410,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="w4L-LH-rFV"/>
+        <segue reference="g9X-SF-oPX"/>
     </inferredMetricsTieBreakers>
 </document>

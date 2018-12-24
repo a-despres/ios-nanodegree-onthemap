@@ -10,6 +10,9 @@ import UIKit
 
 class TableViewController: UIViewController {
 
+    // MARK: Constants
+    let cellIdentifier = "cell"
+    
     // MARK: - IBActions
     @IBAction func handleAddLocationButtonTap(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "addLocation", sender: nil)
