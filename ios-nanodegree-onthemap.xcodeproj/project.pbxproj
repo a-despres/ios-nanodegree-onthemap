@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		A15E90FF21D142E80005CAF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E90FE21D142E80005CAF3 /* AppDelegate.swift */; };
-		A15E910121D142E80005CAF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E910021D142E80005CAF3 /* ViewController.swift */; };
+		A15E910121D142E80005CAF3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E910021D142E80005CAF3 /* LoginViewController.swift */; };
 		A15E910421D142E80005CAF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A15E910221D142E80005CAF3 /* Main.storyboard */; };
 		A15E910621D142EB0005CAF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A15E910521D142EB0005CAF3 /* Assets.xcassets */; };
 		A15E910921D142EB0005CAF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A15E910721D142EB0005CAF3 /* LaunchScreen.storyboard */; };
+		A15E911121D145470005CAF3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E911021D145470005CAF3 /* MapViewController.swift */; };
+		A15E911721D146260005CAF3 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E911621D146260005CAF3 /* TableViewController.swift */; };
+		A15E911921D1466A0005CAF3 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E911821D1466A0005CAF3 /* AddLocationViewController.swift */; };
+		A15E911B21D148FB0005CAF3 /* ConfirmLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E911A21D148FB0005CAF3 /* ConfirmLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A15E90FB21D142E80005CAF3 /* ios-nanodegree-onthemap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-nanodegree-onthemap.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A15E90FE21D142E80005CAF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A15E910021D142E80005CAF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A15E910021D142E80005CAF3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A15E910321D142E80005CAF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A15E910521D142EB0005CAF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A15E910821D142EB0005CAF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A15E910A21D142EB0005CAF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A15E911021D145470005CAF3 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		A15E911621D146260005CAF3 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		A15E911821D1466A0005CAF3 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		A15E911A21D148FB0005CAF3 /* ConfirmLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +62,34 @@
 		A15E90FD21D142E80005CAF3 /* ios-nanodegree-onthemap */ = {
 			isa = PBXGroup;
 			children = (
+				A15E911221D145580005CAF3 /* View Controllers */,
+				A15E911321D145850005CAF3 /* Storyboards */,
 				A15E90FE21D142E80005CAF3 /* AppDelegate.swift */,
-				A15E910021D142E80005CAF3 /* ViewController.swift */,
-				A15E910221D142E80005CAF3 /* Main.storyboard */,
 				A15E910521D142EB0005CAF3 /* Assets.xcassets */,
-				A15E910721D142EB0005CAF3 /* LaunchScreen.storyboard */,
 				A15E910A21D142EB0005CAF3 /* Info.plist */,
 			);
 			path = "ios-nanodegree-onthemap";
+			sourceTree = "<group>";
+		};
+		A15E911221D145580005CAF3 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A15E911821D1466A0005CAF3 /* AddLocationViewController.swift */,
+				A15E911A21D148FB0005CAF3 /* ConfirmLocationViewController.swift */,
+				A15E910021D142E80005CAF3 /* LoginViewController.swift */,
+				A15E911021D145470005CAF3 /* MapViewController.swift */,
+				A15E911621D146260005CAF3 /* TableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		A15E911321D145850005CAF3 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A15E910221D142E80005CAF3 /* Main.storyboard */,
+				A15E910721D142EB0005CAF3 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +163,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A15E910121D142E80005CAF3 /* ViewController.swift in Sources */,
+				A15E911121D145470005CAF3 /* MapViewController.swift in Sources */,
+				A15E910121D142E80005CAF3 /* LoginViewController.swift in Sources */,
+				A15E911B21D148FB0005CAF3 /* ConfirmLocationViewController.swift in Sources */,
+				A15E911921D1466A0005CAF3 /* AddLocationViewController.swift in Sources */,
 				A15E90FF21D142E80005CAF3 /* AppDelegate.swift in Sources */,
+				A15E911721D146260005CAF3 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
