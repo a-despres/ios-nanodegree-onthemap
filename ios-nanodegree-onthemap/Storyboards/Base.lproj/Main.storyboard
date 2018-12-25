@@ -330,13 +330,38 @@
                                     <outlet property="delegate" destination="QKJ-qL-I9b" id="7Md-oi-x8g"/>
                                 </connections>
                             </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AqB-cz-wyU">
+                                <rect key="frame" x="0.0" y="570" width="375" height="48"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="WX3-KF-aRV">
+                                        <rect key="frame" x="24" y="14" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Downloading Student Locations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BY7-lR-OST">
+                                        <rect key="frame" x="91.5" y="16" width="192" height="16"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="WX3-KF-aRV" firstAttribute="centerY" secondItem="AqB-cz-wyU" secondAttribute="centerY" id="HSY-47-YfZ"/>
+                                    <constraint firstAttribute="height" constant="48" id="OL9-ke-xte"/>
+                                    <constraint firstItem="BY7-lR-OST" firstAttribute="centerX" secondItem="AqB-cz-wyU" secondAttribute="centerX" id="hVb-cV-3iE"/>
+                                    <constraint firstItem="BY7-lR-OST" firstAttribute="centerY" secondItem="AqB-cz-wyU" secondAttribute="centerY" id="hia-Pj-mFo"/>
+                                    <constraint firstItem="WX3-KF-aRV" firstAttribute="leading" secondItem="AqB-cz-wyU" secondAttribute="leading" constant="24" id="jNv-F1-6dm"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="AqB-cz-wyU" firstAttribute="centerX" secondItem="PXL-a3-Mhv" secondAttribute="centerX" id="R7W-OA-8xx"/>
                             <constraint firstItem="PXL-a3-Mhv" firstAttribute="bottom" secondItem="CaU-ey-8Jk" secondAttribute="bottom" id="WLC-EA-HlZ"/>
                             <constraint firstItem="CaU-ey-8Jk" firstAttribute="leading" secondItem="PXL-a3-Mhv" secondAttribute="leading" id="ktd-KF-OXN"/>
                             <constraint firstItem="CaU-ey-8Jk" firstAttribute="top" secondItem="PXL-a3-Mhv" secondAttribute="top" id="tT8-Eu-YNb"/>
                             <constraint firstItem="PXL-a3-Mhv" firstAttribute="trailing" secondItem="CaU-ey-8Jk" secondAttribute="trailing" id="ueo-rj-cLk"/>
+                            <constraint firstItem="AqB-cz-wyU" firstAttribute="width" secondItem="7nW-lC-crp" secondAttribute="width" id="wKa-Kl-DsJ"/>
+                            <constraint firstItem="PXL-a3-Mhv" firstAttribute="bottom" secondItem="AqB-cz-wyU" secondAttribute="bottom" id="ybK-ju-zgQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PXL-a3-Mhv"/>
                     </view>
@@ -360,6 +385,9 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="downloadStatusView" destination="AqB-cz-wyU" id="YgU-gM-ivw"/>
+                        <outlet property="mapView" destination="CaU-ey-8Jk" id="MYc-dx-Fde"/>
+                        <outlet property="refreshButton" destination="DCT-Bc-DuQ" id="wnN-J4-61x"/>
                         <segue destination="jxG-vA-rsx" kind="presentation" identifier="addLocation" id="w4L-LH-rFV"/>
                     </connections>
                 </viewController>
@@ -443,6 +471,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="g9X-SF-oPX"/>
+        <segue reference="w4L-LH-rFV"/>
     </inferredMetricsTieBreakers>
 </document>

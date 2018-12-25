@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A126A75D21D1FAD300C0FA54 /* MapViewController+MKMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126A75C21D1FAD300C0FA54 /* MapViewController+MKMapViewDelegate.swift */; };
+		A126A75F21D1FB1C00C0FA54 /* PinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126A75E21D1FB1C00C0FA54 /* PinAnnotation.swift */; };
 		A15E90FF21D142E80005CAF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E90FE21D142E80005CAF3 /* AppDelegate.swift */; };
 		A15E910121D142E80005CAF3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E910021D142E80005CAF3 /* LoginViewController.swift */; };
 		A15E910421D142E80005CAF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A15E910221D142E80005CAF3 /* Main.storyboard */; };
@@ -18,9 +20,14 @@
 		A15E911B21D148FB0005CAF3 /* ConfirmLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E911A21D148FB0005CAF3 /* ConfirmLocationViewController.swift */; };
 		A15E911E21D154410005CAF3 /* TableViewController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E911D21D154410005CAF3 /* TableViewController+UITableViewDelegate.swift */; };
 		A15E912021D154AF0005CAF3 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E911F21D154AF0005CAF3 /* TableViewCell.swift */; };
+		A15E912221D186D60005CAF3 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E912121D186D60005CAF3 /* StudentLocation.swift */; };
+		A15E912521D187EF0005CAF3 /* OnTheMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E912421D187EF0005CAF3 /* OnTheMap.swift */; };
+		A15E912721D18E300005CAF3 /* StudentLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E912621D18E300005CAF3 /* StudentLocations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A126A75C21D1FAD300C0FA54 /* MapViewController+MKMapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+MKMapViewDelegate.swift"; sourceTree = "<group>"; };
+		A126A75E21D1FB1C00C0FA54 /* PinAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinAnnotation.swift; sourceTree = "<group>"; };
 		A15E90FB21D142E80005CAF3 /* ios-nanodegree-onthemap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-nanodegree-onthemap.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A15E90FE21D142E80005CAF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A15E910021D142E80005CAF3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -34,6 +41,9 @@
 		A15E911A21D148FB0005CAF3 /* ConfirmLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmLocationViewController.swift; sourceTree = "<group>"; };
 		A15E911D21D154410005CAF3 /* TableViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		A15E911F21D154AF0005CAF3 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		A15E912121D186D60005CAF3 /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
+		A15E912421D187EF0005CAF3 /* OnTheMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMap.swift; sourceTree = "<group>"; };
+		A15E912621D18E300005CAF3 /* StudentLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +57,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A126A75B21D1FAA000C0FA54 /* MapViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A15E911021D145470005CAF3 /* MapViewController.swift */,
+				A126A75C21D1FAD300C0FA54 /* MapViewController+MKMapViewDelegate.swift */,
+				A126A75E21D1FB1C00C0FA54 /* PinAnnotation.swift */,
+			);
+			path = MapViewController;
+			sourceTree = "<group>";
+		};
 		A15E90F221D142E80005CAF3 = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +86,7 @@
 		A15E90FD21D142E80005CAF3 /* ios-nanodegree-onthemap */ = {
 			isa = PBXGroup;
 			children = (
+				A15E912321D187CC0005CAF3 /* OnTheMapAPI */,
 				A15E911221D145580005CAF3 /* View Controllers */,
 				A15E911321D145850005CAF3 /* Storyboards */,
 				A15E90FE21D142E80005CAF3 /* AppDelegate.swift */,
@@ -81,7 +102,7 @@
 				A15E911821D1466A0005CAF3 /* AddLocationViewController.swift */,
 				A15E911A21D148FB0005CAF3 /* ConfirmLocationViewController.swift */,
 				A15E910021D142E80005CAF3 /* LoginViewController.swift */,
-				A15E911021D145470005CAF3 /* MapViewController.swift */,
+				A126A75B21D1FAA000C0FA54 /* MapViewController */,
 				A15E911C21D153E20005CAF3 /* TableViewController */,
 			);
 			path = "View Controllers";
@@ -104,6 +125,16 @@
 				A15E911D21D154410005CAF3 /* TableViewController+UITableViewDelegate.swift */,
 			);
 			path = TableViewController;
+			sourceTree = "<group>";
+		};
+		A15E912321D187CC0005CAF3 /* OnTheMapAPI */ = {
+			isa = PBXGroup;
+			children = (
+				A15E912421D187EF0005CAF3 /* OnTheMap.swift */,
+				A15E912121D186D60005CAF3 /* StudentLocation.swift */,
+				A15E912621D18E300005CAF3 /* StudentLocations.swift */,
+			);
+			path = OnTheMapAPI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,8 +208,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A15E912221D186D60005CAF3 /* StudentLocation.swift in Sources */,
 				A15E911121D145470005CAF3 /* MapViewController.swift in Sources */,
 				A15E912021D154AF0005CAF3 /* TableViewCell.swift in Sources */,
+				A15E912521D187EF0005CAF3 /* OnTheMap.swift in Sources */,
+				A126A75D21D1FAD300C0FA54 /* MapViewController+MKMapViewDelegate.swift in Sources */,
+				A126A75F21D1FB1C00C0FA54 /* PinAnnotation.swift in Sources */,
+				A15E912721D18E300005CAF3 /* StudentLocations.swift in Sources */,
 				A15E910121D142E80005CAF3 /* LoginViewController.swift in Sources */,
 				A15E911B21D148FB0005CAF3 /* ConfirmLocationViewController.swift in Sources */,
 				A15E911921D1466A0005CAF3 /* AddLocationViewController.swift in Sources */,
