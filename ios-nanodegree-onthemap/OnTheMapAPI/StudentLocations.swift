@@ -13,6 +13,12 @@ struct StudentLocations: Codable {
     var count: Int { return results.count }
     private var index = 0 // used in iterator
     
+    subscript(index: Int) -> StudentLocation {
+        get {
+            return results[index]
+        }
+    }
+    
     private enum CodingKeys: String, CodingKey {
         case results
     }
