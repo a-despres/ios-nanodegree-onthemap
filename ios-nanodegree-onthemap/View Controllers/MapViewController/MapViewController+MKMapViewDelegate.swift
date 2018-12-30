@@ -34,4 +34,10 @@ extension MapViewController: MKMapViewDelegate {
         
         return annotationView
     }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard let annotation = view.annotation as? PinAnnotation else { return }
+        guard let url = URL(string: annotation.url) else { return }
+        UIApplication.shared.open(url)
+    }
 }
