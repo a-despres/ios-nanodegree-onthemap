@@ -24,6 +24,7 @@
 		A15E912521D187EF0005CAF3 /* OnTheMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E912421D187EF0005CAF3 /* OnTheMap.swift */; };
 		A15E912721D18E300005CAF3 /* StudentLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E912621D18E300005CAF3 /* StudentLocations.swift */; };
 		A1E6E5DE21D94D42003367A8 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E6E5DD21D94D42003367A8 /* ErrorAlert.swift */; };
+		A1E6E5E021D97CCA003367A8 /* PostStudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E6E5DF21D97CCA003367A8 /* PostStudentLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		A15E912421D187EF0005CAF3 /* OnTheMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMap.swift; sourceTree = "<group>"; };
 		A15E912621D18E300005CAF3 /* StudentLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocations.swift; sourceTree = "<group>"; };
 		A1E6E5DD21D94D42003367A8 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
+		A1E6E5DF21D97CCA003367A8 /* PostStudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStudentLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				A15E912421D187EF0005CAF3 /* OnTheMap.swift */,
+				A1E6E5DF21D97CCA003367A8 /* PostStudentLocation.swift */,
 				A15E912121D186D60005CAF3 /* StudentLocation.swift */,
 				A15E912621D18E300005CAF3 /* StudentLocations.swift */,
 			);
@@ -222,6 +225,7 @@
 				A15E910121D142E80005CAF3 /* LoginViewController.swift in Sources */,
 				A15E911B21D148FB0005CAF3 /* ConfirmLocationViewController.swift in Sources */,
 				A15E911921D1466A0005CAF3 /* AddLocationViewController.swift in Sources */,
+				A1E6E5E021D97CCA003367A8 /* PostStudentLocation.swift in Sources */,
 				A15E90FF21D142E80005CAF3 /* AppDelegate.swift in Sources */,
 				A15E911E21D154410005CAF3 /* TableViewController+UITableViewDelegate.swift in Sources */,
 				A15E911721D146260005CAF3 /* TableViewController.swift in Sources */,

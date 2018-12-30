@@ -35,8 +35,8 @@ class AddLocationViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "findLocation" {
             guard let vc = segue.destination as? ConfirmLocationViewController else { return }
-            guard let location = sender as? CLLocation else { return }
-            vc.location = location
+            guard let placemark = sender as? CLPlacemark else { return }
+            vc.placemark = placemark
         }
     }
 }
@@ -50,11 +50,11 @@ extension AddLocationViewController {
     }
     
     private func handleGeocodeAddressStringResponse(placemarks: [CLPlacemark]?, error: Error?) {
-        guard let placemarks = placemarks, let location = placemarks.first?.location else {
+        guard let placemark = placemarks?.first else {
             displayGeocodeError(error)
             return
         }
-        performSegue(withIdentifier: "findLocation", sender: location)
+        performSegue(withIdentifier: "findLocation", sender: placemark)
     }
     
     private func displayGeocodeError(_ error: Error?) {
