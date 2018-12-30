@@ -10,6 +10,9 @@ import UIKit
 
 class TableViewController: UIViewController {
 
+    // MARK: - Properties
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     // MARK: Constants
     let cellIdentifier = "cell"
     

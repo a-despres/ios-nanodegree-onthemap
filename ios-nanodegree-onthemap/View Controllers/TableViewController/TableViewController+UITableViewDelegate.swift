@@ -10,13 +10,32 @@ import UIKit
 
 extension TableViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return appDelegate.studentLocations?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TableViewCell
+        
+        if let studentLocations = appDelegate.studentLocations {
+            let studentName = "\(studentLocations[indexPath.row].firstName) \(studentLocations[indexPath.row].lastName)"
+            cell.nameLabel.text = studentName
+        }
+        
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let studentLocations = appDelegate.studentLocations {
+            guard let url = URL(string: studentLocations[indexPath.row].mediaURL) else { return }
+            UIApplication.shared.open(url, options: [:]) { [unowned self] success in
+                if !success {
+                    self.present(ErrorAlert.Alert.url.alertController, animated: true, completion: nil)
+                }
+            }
+        }
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 64
     }

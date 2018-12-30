@@ -124,6 +124,9 @@
                                                 <constraint firstItem="CJx-TW-P14" firstAttribute="centerY" secondItem="rcj-Ii-U5h" secondAttribute="centerY" id="toj-Mx-gQ5"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="CJx-TW-P14" id="g9w-B7-rux"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -471,6 +474,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="w4L-LH-rFV"/>
+        <segue reference="g9X-SF-oPX"/>
     </inferredMetricsTieBreakers>
 </document>
