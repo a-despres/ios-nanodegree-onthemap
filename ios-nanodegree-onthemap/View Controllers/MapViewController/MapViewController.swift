@@ -109,9 +109,7 @@ class MapViewController: UIViewController {
     
     private func displayStudentLocationsError(_ error: Error?) {
         if let error = error as? URLError {
-            let alertController = UIAlertController(title: "Something went wrong...", message: error.localizedDescription, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
-            present(alertController, animated: true, completion: nil)
+            present(ErrorAlert.Alert.studentLocations(error).alertController, animated: true, completion: nil)
         }
     }
 }

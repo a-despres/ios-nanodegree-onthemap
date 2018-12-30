@@ -11,6 +11,7 @@ import UIKit
 struct ErrorAlert {
     enum Alert {
         case url
+        case studentLocations(Error)
         
         var alertController: UIAlertController {
             // Define standard Alert view
@@ -19,6 +20,7 @@ struct ErrorAlert {
             // Add error specific message
             switch self {
             case .url: alertController.message = "Invalid URL"
+            case .studentLocations(let error): alertController.message = error.localizedDescription
             }
             
             // Add standard Dismiss button and return
