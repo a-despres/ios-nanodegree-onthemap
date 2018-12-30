@@ -10,6 +10,7 @@ import Foundation
 
 struct StudentLocations: Codable {
     let results: [StudentLocation]
+    var count: Int { return results.count }
     private var index = 0 // used in iterator
     
     private enum CodingKeys: String, CodingKey {
