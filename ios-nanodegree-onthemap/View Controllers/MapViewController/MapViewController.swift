@@ -11,6 +11,9 @@ import MapKit
 
 class MapViewController: UIViewController {
     
+    // MARK: - Properties
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     // MARK: - IBOutlets
     @IBOutlet weak var downloadStatusView: UIView!
     @IBOutlet weak var mapView: MKMapView!
@@ -57,20 +60,27 @@ class MapViewController: UIViewController {
         // parse student location data or fail
         if let studentLocations = studentLocations {
             hideDownloadStatusView()
-            for studentLocation in studentLocations {
-                // pull values from studentLocation object...
-                let student = "\(studentLocation.firstName) \(studentLocation.lastName)"
-                let locationName = studentLocation.mapString
-                let coordinate = CLLocationCoordinate2D(latitude: studentLocation.latitude, longitude: studentLocation.longitude)
-                let url = studentLocation.mediaURL
-                
-                // ...and assign values to PinAnnotation object
-                let pin = PinAnnotation(student: student, locationName: locationName, coordinate: coordinate, url: url)
-                self.mapView.addAnnotation(pin)
-            }
+            appDelegate.studentLocations = studentLocations
+            addPinsToMap()
         } else {
             hideDownloadStatusView()
             displayStudentLocationsError(error)
+        }
+    }
+    
+    private func addPinsToMap() {
+        guard let studentLocations = appDelegate.studentLocations else { return }
+        
+        for studentLocation in studentLocations {
+            // pull values from studentLocation object...
+            let student = "\(studentLocation.firstName) \(studentLocation.lastName)"
+            let locationName = studentLocation.mapString
+            let coordinate = CLLocationCoordinate2D(latitude: studentLocation.latitude, longitude: studentLocation.longitude)
+            let url = studentLocation.mediaURL
+            
+            // ...and assign values to PinAnnotation object
+            let pin = PinAnnotation(student: student, locationName: locationName, coordinate: coordinate, url: url)
+            self.mapView.addAnnotation(pin)
         }
     }
     
