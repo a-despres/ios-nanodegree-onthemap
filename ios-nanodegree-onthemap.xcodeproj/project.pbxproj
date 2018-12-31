@@ -33,6 +33,7 @@
 		A1E6E5EE21D99969003367A8 /* DeleteSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E6E5ED21D99969003367A8 /* DeleteSession.swift */; };
 		A1E6E5F021D99CD5003367A8 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E6E5EF21D99CD5003367A8 /* UserData.swift */; };
 		A1E6E5F221D9BDB9003367A8 /* PutStudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E6E5F121D9BDB9003367A8 /* PutStudentLocation.swift */; };
+		A1E6E5F421D9DEAE003367A8 /* OnTheMapError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E6E5F321D9DEAE003367A8 /* OnTheMapError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		A1E6E5ED21D99969003367A8 /* DeleteSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteSession.swift; sourceTree = "<group>"; };
 		A1E6E5EF21D99CD5003367A8 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		A1E6E5F121D9BDB9003367A8 /* PutStudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutStudentLocation.swift; sourceTree = "<group>"; };
+		A1E6E5F321D9DEAE003367A8 /* OnTheMapError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				A1E6E5EB21D99950003367A8 /* Login.swift */,
 				A1E6E5E521D98C72003367A8 /* PostSession.swift */,
 				A1E6E5DF21D97CCA003367A8 /* PostStudentLocation.swift */,
+				A1E6E5F321D9DEAE003367A8 /* OnTheMapError.swift */,
 				A1E6E5E721D9990A003367A8 /* Session.swift */,
 				A15E912121D186D60005CAF3 /* StudentLocation.swift */,
 				A15E912621D18E300005CAF3 /* StudentLocations.swift */,
@@ -242,6 +245,7 @@
 				A1E6E5DE21D94D42003367A8 /* ErrorAlert.swift in Sources */,
 				A1E6E5F221D9BDB9003367A8 /* PutStudentLocation.swift in Sources */,
 				A15E911121D145470005CAF3 /* MapViewController.swift in Sources */,
+				A1E6E5F421D9DEAE003367A8 /* OnTheMapError.swift in Sources */,
 				A15E912021D154AF0005CAF3 /* TableViewCell.swift in Sources */,
 				A15E912521D187EF0005CAF3 /* OnTheMap.swift in Sources */,
 				A126A75D21D1FAD300C0FA54 /* MapViewController+MKMapViewDelegate.swift in Sources */,

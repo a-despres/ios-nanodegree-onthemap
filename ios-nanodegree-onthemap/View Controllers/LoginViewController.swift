@@ -28,9 +28,10 @@ class LoginViewController: UIViewController {
                     }
                 })
                 self.performSegue(withIdentifier: "loginSuccessful", sender: nil)
+            } else if let error = error as? OnTheMapError {
+                self.present(ErrorAlert.forStatus(error.status, parameter: error.parameter), animated: true, completion: nil)
             } else if let error = error {
-                // FIXME: Add proper error handling
-                print(error)
+                self.present(ErrorAlert.forUnknownError(error), animated: true, completion: nil)
             }
         }
     }
