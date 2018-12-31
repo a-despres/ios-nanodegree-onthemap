@@ -12,6 +12,7 @@ import MapKit
 class ConfirmLocationViewController: UIViewController {
 
     // MARK: - Properties
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     public var placemark: CLPlacemark?
     
     // MARK: - IBOutlets
@@ -24,15 +25,18 @@ class ConfirmLocationViewController: UIViewController {
             return
         }
         
-        // Temporary values -- these will likely be updated after implementing login functionality
-        let studentLocation = StudentLocation(firstName: "Andrew",
-                                              lastName: "Despres",
+        guard let userData = appDelegate.userData else {
+            return
+        }
+        
+        let studentLocation = StudentLocation(firstName: userData.firstName,
+                                              lastName: userData.lastName,
                                               latitude: location.coordinate.latitude,
                                               longitude: location.coordinate.longitude,
                                               mapString: locationName,
                                               mediaURL: linkTextField.text!,
                                               objectId: "",
-                                              uniqueKey: "ad1234")
+                                              uniqueKey: userData.key)
         
         OnTheMap.postStudentLocation(studentLocation) { [unowned self] (response, error) in
             if let _ = response {
