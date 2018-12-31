@@ -25,6 +25,17 @@ class OnTheMap {
         }
     }
     
+    class func getUserData(for userId: String, completion: @escaping (UserData?, Error?) -> Void) {
+        let url = URL(string: "https://onthemap-api.udacity.com/v1/users/\(userId)")
+        taskForGETRequest(url: url!, response: UserData.self, securedResponse: true) { (response, error) in
+            if let response = response {
+                DispatchQueue.main.async { completion(response, nil) }
+            } else {
+                DispatchQueue.main.async { completion(nil, error) }
+            }
+        }
+    }
+    
     class func postStudentLocation(_ studentLocation: StudentLocation, completion: @escaping (PostStudentLocation?, Error?) -> Void) {
         let url = URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")
         let body = studentLocation
@@ -67,15 +78,20 @@ class OnTheMap {
 
 // MARK: - HTTP Requests
 extension OnTheMap {
-    private class func taskForGETRequest<ResponseType: Decodable>(url: URL, response: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
+    private class func taskForGETRequest<ResponseType: Decodable>(url: URL, response: ResponseType.Type, securedResponse: Bool = false, completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)
         request.addValue(applicationID, forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue(apiKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let data = data else {
+            guard var data = data else {
                 completion(nil, error)
                 return
+            }
+            
+            if securedResponse {
+                let range = 5 ..< data.count
+                data = data.subdata(in: range)
             }
             
             // Decode JSON to ResponseType

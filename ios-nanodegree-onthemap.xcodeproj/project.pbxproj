@@ -31,6 +31,7 @@
 		A1E6E5EA21D99930003367A8 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E6E5E921D99930003367A8 /* Account.swift */; };
 		A1E6E5EC21D99951003367A8 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E6E5EB21D99950003367A8 /* Login.swift */; };
 		A1E6E5EE21D99969003367A8 /* DeleteSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E6E5ED21D99969003367A8 /* DeleteSession.swift */; };
+		A1E6E5F021D99CD5003367A8 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E6E5EF21D99CD5003367A8 /* UserData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		A1E6E5E921D99930003367A8 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		A1E6E5EB21D99950003367A8 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		A1E6E5ED21D99969003367A8 /* DeleteSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteSession.swift; sourceTree = "<group>"; };
+		A1E6E5EF21D99CD5003367A8 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				A15E912121D186D60005CAF3 /* StudentLocation.swift */,
 				A15E912621D18E300005CAF3 /* StudentLocations.swift */,
 				A1E6E5E321D98B70003367A8 /* UdacityLogin.swift */,
+				A1E6E5EF21D99CD5003367A8 /* UserData.swift */,
 			);
 			path = OnTheMapAPI;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				A1E6E5E621D98C72003367A8 /* PostSession.swift in Sources */,
 				A15E911B21D148FB0005CAF3 /* ConfirmLocationViewController.swift in Sources */,
 				A15E911921D1466A0005CAF3 /* AddLocationViewController.swift in Sources */,
+				A1E6E5F021D99CD5003367A8 /* UserData.swift in Sources */,
 				A1E6E5E021D97CCA003367A8 /* PostStudentLocation.swift in Sources */,
 				A15E90FF21D142E80005CAF3 /* AppDelegate.swift in Sources */,
 				A15E911E21D154410005CAF3 /* TableViewController+UITableViewDelegate.swift in Sources */,

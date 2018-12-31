@@ -10,6 +10,9 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    // MARK: - Properties
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     // MARK: - IBOutlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -18,7 +21,12 @@ class LoginViewController: UIViewController {
     // MARK: - IBActions
     @IBAction func handleLoginButtonTap(_ sender: UIButton) {
         OnTheMap.postSession(username: emailTextField.text!, password: passwordTextField.text!) { [unowned self] (response, error) in
-            if let _ = response {
+            if let response = response {
+                OnTheMap.getUserData(for: response.account.key, completion: { [unowned self] (userData, error) in
+                    if let userData = userData {
+                        self.appDelegate.userData = userData
+                    }
+                })
                 self.performSegue(withIdentifier: "loginSuccessful", sender: nil)
             } else if let error = error {
                 // FIXME: Add proper error handling
