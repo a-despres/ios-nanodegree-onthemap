@@ -35,14 +35,26 @@ class ConfirmLocationViewController: UIViewController {
                                               longitude: location.coordinate.longitude,
                                               mapString: locationName,
                                               mediaURL: linkTextField.text!,
-                                              objectId: "",
+                                              objectId: appDelegate.studentLocation?.objectId ?? "",
                                               uniqueKey: userData.key)
         
-        OnTheMap.postStudentLocation(studentLocation) { [unowned self] (response, error) in
-            if let _ = response {
-                self.presentingViewController?.dismiss(animated: true, completion: nil)
-            } else {
-                if let error = error {
+        if appDelegate.studentLocation == nil {
+            // post new student location to database
+            OnTheMap.postStudentLocation(studentLocation) { [unowned self] (response, error) in
+                if let _ = response {
+                    self.presentingViewController?.dismiss(animated: true, completion: nil)
+                } else {
+                    if let error = error {
+                        self.present(ErrorAlert.Alert.postStudentLocation(error).alertController, animated: true, completion: nil)
+                    }
+                }
+            }
+        } else {
+            // update(put) student location in database
+            OnTheMap.putStudentLocation(studentLocation) { [unowned self] (response, error) in
+                if let _ = response {
+                    self.presentingViewController?.dismiss(animated: true, completion: nil)
+                } else if let error = error {
                     self.present(ErrorAlert.Alert.postStudentLocation(error).alertController, animated: true, completion: nil)
                 }
             }

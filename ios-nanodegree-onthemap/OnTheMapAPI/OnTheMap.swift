@@ -14,6 +14,18 @@ class OnTheMap {
     private static let decoder = JSONDecoder()
     private static let encoder = JSONEncoder()
     
+    class func getStudentLocation(for uniqueKey: String, completion: @escaping (StudentLocations?, Error?) -> Void) {
+        let parameters = "{\"uniqueKey\":\"\(uniqueKey)\"}".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let url = URL(string: "https://parse.udacity.com/parse/classes/StudentLocation?where=\(parameters)")
+        taskForGETRequest(url: url!, response: StudentLocations.self) { (response, error) in
+            if let response = response {
+                DispatchQueue.main.async { completion(response, nil) }
+            } else {
+                DispatchQueue.main.async { completion(nil, error) }
+            }
+        }
+    }
+    
     class func getStudentLocations(completion: @escaping (StudentLocations?, Error?) -> Void) {
         let url = URL(string: "https://parse.udacity.com/parse/classes/StudentLocation?limit=100&order=updatedAt")
         taskForGETRequest(url: url!, response: StudentLocations.self) { (response, error) in
@@ -40,6 +52,18 @@ class OnTheMap {
         let url = URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")
         let body = studentLocation
         taskForPOSTRequest(url: url!, body: body, response: PostStudentLocation.self, completion: { (response, error) in
+            if let response = response {
+                DispatchQueue.main.async { completion(response, nil) }
+            } else {
+                DispatchQueue.main.async { completion(nil, error) }
+            }
+        })
+    }
+    
+    class func putStudentLocation(_ studentLocation: StudentLocation, completion: @escaping (PutStudentLocation?, Error?) -> Void) {
+        let url = URL(string: "https://parse.udacity.com/parse/classes/StudentLocation/\(studentLocation.objectId)")
+        let body = studentLocation
+        taskForPUTRequest(url: url!, body: body, response: PutStudentLocation.self, completion: { (response, error) in
             if let response = response {
                 DispatchQueue.main.async { completion(response, nil) }
             } else {
@@ -172,6 +196,41 @@ extension OnTheMap {
             if securedResponse {
                 let range = 5 ..< data.count
                 data = data.subdata(in: range)
+            }
+            
+            // Decode JSON to ResponseType
+            do {
+                let responseObject = try decoder.decode(ResponseType.self, from: data)
+                completion(responseObject, nil)
+                return
+            } catch {
+                completion(nil, error)
+                return
+            }
+        }
+        
+        task.resume()
+    }
+    
+    private class func taskForPUTRequest<RequestType: Encodable, ResponseType: Decodable>(url: URL, body: RequestType, response: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.addValue(applicationID, forHTTPHeaderField: "X-Parse-Application-Id")
+        request.addValue(apiKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        // add http request body
+        do {
+            request.httpBody = try encoder.encode(body)
+        } catch {
+            completion(nil, error)
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data else {
+                completion(nil, error)
+                return
             }
             
             // Decode JSON to ResponseType

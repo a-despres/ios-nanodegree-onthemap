@@ -21,7 +21,22 @@ class MapViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func handleAddLocationButtonTap(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "addLocation", sender: nil)
+        guard let userData = appDelegate.userData else { return }
+        
+        OnTheMap.getStudentLocation(for: userData.key) { [unowned self] (response, error) in
+            if let response = response {
+                if response.count > 0 {
+                    self.appDelegate.studentLocation = response[0]
+                    print(response[0])
+                    self.displayExistingLocationAlert()
+                } else {
+                    self.performSegue(withIdentifier: "addLocation", sender: nil)
+                }
+            } else if let error = error {
+                // FIXME: Add proper error handling
+                print(error)
+            }
+        }
     }
     
     @IBAction func handleLogoutButtonTap(_ sender: UIBarButtonItem) {
@@ -112,6 +127,17 @@ class MapViewController: UIViewController {
                 // hide status view
                 self.downloadStatusView.isHidden = true
         })
+    }
+    
+    private func displayExistingLocationAlert() {
+        let alertController = UIAlertController(title: "Student Location Exists", message: "You have already posted a student location. Would you like to overwrite your current location?", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Overwrite", style: .default, handler: handleOverwriteLocationTap(_:)))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func handleOverwriteLocationTap(_ action: UIAlertAction) {
+        performSegue(withIdentifier: "addLocation", sender: nil)
     }
     
     private func displayStudentLocationsError(_ error: Error?) {
