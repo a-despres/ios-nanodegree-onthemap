@@ -13,6 +13,7 @@ struct ErrorAlert {
     
     private enum Message {
         case login(String?)
+        case url(Int?)
         
         var stringValue: String {
             switch self {
@@ -22,12 +23,18 @@ struct ErrorAlert {
                 case "udacity.username": return "Invalid or Missing E-Mail Address"
                 default: return "Account Not Found or Invalid Credentials"
                 }
+            case .url(let code):
+                switch code {
+                case -1001: return "Network Request Timed Out"
+                default: return "A Network Error Occurred"
+                }
             }
         }
     }
     
     private enum Title: String {
         case login = "Could Not Login"
+        case url = "Network Error"
     }
 
     static func forStatus(_ status: Int, parameter: String? = nil) -> UIAlertController {
@@ -53,6 +60,19 @@ struct ErrorAlert {
     
         // Add error message
         alertController.message = error.localizedDescription
+        
+        // Add dismiss button and return
+        alertController.addAction(dismissAction)
+        return alertController
+    }
+    
+    static func forURLError(_ error: URLError) -> UIAlertController {
+        // Define alert view
+        let alertController = UIAlertController(title: "Error", message: "", preferredStyle: .alert)
+        
+        // Add error specific title and message
+        alertController.title = Title.url.rawValue
+        alertController.message = Message.url(error.code.rawValue).stringValue
         
         // Add dismiss button and return
         alertController.addAction(dismissAction)

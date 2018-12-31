@@ -417,7 +417,9 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="addLocationButton" destination="mli-cg-Pb8" id="e6r-lL-7S1"/>
                         <outlet property="downloadStatusView" destination="AqB-cz-wyU" id="YgU-gM-ivw"/>
+                        <outlet property="logoutButton" destination="Fbj-sL-k9W" id="qrr-km-AXp"/>
                         <outlet property="mapView" destination="CaU-ey-8Jk" id="MYc-dx-Fde"/>
                         <outlet property="refreshButton" destination="DCT-Bc-DuQ" id="wnN-J4-61x"/>
                         <segue destination="jxG-vA-rsx" kind="presentation" identifier="addLocation" id="w4L-LH-rFV"/>

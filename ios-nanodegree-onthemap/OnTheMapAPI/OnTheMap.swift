@@ -194,6 +194,7 @@ extension OnTheMap {
         
         if let xsrfCookie = xsrfCookie {
             request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+            print(xsrfCookie.value)
         }
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -206,6 +207,9 @@ extension OnTheMap {
                 let range = 5 ..< data.count
                 data = data.subdata(in: range)
             }
+            
+            // For Debug Purposes Only
+            print(String(data: data, encoding: .utf8))
             
             // Decode JSON to ResponseType
             do {
