@@ -159,14 +159,23 @@ extension OnTheMap {
                 data = data.subdata(in: range)
             }
             
+            // For Debug Purposes Only
+            print(String(data: data, encoding: .utf8))
+            
             // Decode JSON to ResponseType
             do {
                 let responseObject = try decoder.decode(ResponseType.self, from: data)
                 completion(responseObject, nil)
                 return
             } catch {
-                completion(nil, error)
-                return
+                do {
+                    let errorObject = try decoder.decode(OnTheMapError.self, from: data)
+                    completion(nil, errorObject)
+                    return
+                } catch {
+                    completion(nil, error)
+                    return
+                }
             }
         }
         
