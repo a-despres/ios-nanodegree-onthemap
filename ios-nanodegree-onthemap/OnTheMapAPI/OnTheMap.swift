@@ -36,6 +36,33 @@ class OnTheMap {
             }
         })
     }
+    
+    class func postSession(username: String, password: String, completion: @escaping (PostSession?, Error?) -> Void) {
+        let url = URL(string: "https://onthemap-api.udacity.com/v1/session")
+        
+        let login = Login(username: username, password: password)
+        let udacityLogin = UdacityLogin(login: login)
+        
+        taskForPOSTRequest(url: url!, body: udacityLogin, response: PostSession.self, securedResponse: true) { (response, error) in
+            if let response = response {
+                DispatchQueue.main.async { completion(response, nil) }
+            } else {
+                DispatchQueue.main.async { completion(nil, error) }
+            }
+        }
+    }
+    
+    class func deleteSession(completion: @escaping (DeleteSession?, Error?) -> Void) {
+        let url = URL(string: "https://onthemap-api.udacity.com/v1/session")
+        
+        taskForDELETERequest(url: url!, response: DeleteSession.self, securedResponse: true) { (response, error) in
+            if let response = response {
+                DispatchQueue.main.async { completion(response, nil) }
+            } else {
+                DispatchQueue.main.async { completion(nil, error) }
+            }
+        }
+    }
 }
 
 // MARK: - HTTP Requests
@@ -65,11 +92,12 @@ extension OnTheMap {
         task.resume()
     }
     
-    private class func taskForPOSTRequest<RequestType: Encodable, ResponseType: Decodable>(url: URL, body: RequestType, response: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
+    private class func taskForPOSTRequest<RequestType: Encodable, ResponseType: Decodable>(url: URL, body: RequestType, response: ResponseType.Type, securedResponse: Bool = false, completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue(applicationID, forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue(apiKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         // add http request body
@@ -81,9 +109,53 @@ extension OnTheMap {
         }
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let data = data else {
+            guard var data = data else {
                 completion(nil, error)
                 return
+            }
+            
+            if securedResponse {
+                let range = 5 ..< data.count
+                data = data.subdata(in: range)
+            }
+            
+            // Decode JSON to ResponseType
+            do {
+                let responseObject = try decoder.decode(ResponseType.self, from: data)
+                completion(responseObject, nil)
+                return
+            } catch {
+                completion(nil, error)
+                return
+            }
+        }
+        
+        task.resume()
+    }
+    
+    private class func taskForDELETERequest<ResponseType: Decodable>(url: URL, response: ResponseType.Type, securedResponse: Bool = false, completion: @escaping (ResponseType?, Error?) -> Void) {
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        
+        var xsrfCookie: HTTPCookie? = nil
+        let sharedCookieStorage = HTTPCookieStorage.shared
+        for cookie in sharedCookieStorage.cookies! {
+            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+        }
+        
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard var data = data else {
+                completion(nil, error)
+                return
+            }
+            
+            if securedResponse {
+                let range = 5 ..< data.count
+                data = data.subdata(in: range)
             }
             
             // Decode JSON to ResponseType

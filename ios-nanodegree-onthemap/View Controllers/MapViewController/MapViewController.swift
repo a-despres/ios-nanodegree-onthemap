@@ -25,7 +25,14 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func handleLogoutButtonTap(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        OnTheMap.deleteSession { [unowned self] (response, error) in
+            if let _ = response {
+                self.dismiss(animated: true, completion: nil)
+            } else if let error = error {
+                // FIXME: Add proper error handling
+                print(error)
+            }
+        }
     }
     
     @IBAction func handleRefreshButtonTap(_ sender: UIBarButtonItem) {

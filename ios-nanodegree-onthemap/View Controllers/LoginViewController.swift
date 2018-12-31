@@ -17,7 +17,14 @@ class LoginViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func handleLoginButtonTap(_ sender: UIButton) {
-        performSegue(withIdentifier: "loginSuccessful", sender: nil)
+        OnTheMap.postSession(username: emailTextField.text!, password: passwordTextField.text!) { [unowned self] (response, error) in
+            if let _ = response {
+                self.performSegue(withIdentifier: "loginSuccessful", sender: nil)
+            } else if let error = error {
+                // FIXME: Add proper error handling
+                print(error)
+            }
+        }
     }
     
     // MARK: - View Controller
