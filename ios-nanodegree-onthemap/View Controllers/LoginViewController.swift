@@ -35,8 +35,28 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBAction func handleSignUpButtonTap(_ sender: UIButton) {
+        let url = URL(string: "https://auth.udacity.com/sign-up")!
+        UIApplication.shared.open(url)
+    }
+    
     // MARK: - View Controller
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // define gradient colors
+        let color1 = UIColor(red: 236/255, green: 240/255, blue: 241/255, alpha: 1)
+        let color2 = UIColor(red: 41/255, green: 128/255, blue: 185/255, alpha: 1)
+        
+        // add gradient to view background
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [color1.cgColor, color2.cgColor]
+        view.layer.insertSublayer(gradientLayer, at: 0)
+        
+        // modify view of loginButton
+        loginButton.layer.borderColor = UIColor.white.cgColor
+        loginButton.layer.borderWidth = 2
+        loginButton.layer.cornerRadius = 8
     }
 }
