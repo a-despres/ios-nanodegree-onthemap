@@ -16,6 +16,12 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TableViewCell
         
+        // change background color of selected cell
+        let customSelectedBackground: UIView = UIView()
+        customSelectedBackground.backgroundColor = UIColor(red: 1, green: 99/255, blue: 72/255, alpha: 1)
+        cell.selectedBackgroundView = customSelectedBackground
+        
+        // display student location in cell
         if let studentLocations = appDelegate.studentLocations {
             let studentName = "\(studentLocations[indexPath.row].firstName) \(studentLocations[indexPath.row].lastName)"
             cell.nameLabel.text = studentName
