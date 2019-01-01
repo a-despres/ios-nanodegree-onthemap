@@ -93,6 +93,7 @@
                             <constraint firstItem="KUH-ed-g0o" firstAttribute="top" secondItem="lyK-ZK-3VO" secondAttribute="bottom" constant="16" id="dWs-Dd-Mlw"/>
                             <constraint firstItem="8h6-iI-teR" firstAttribute="top" secondItem="ZJi-Vf-6kT" secondAttribute="bottom" constant="16" id="fq9-mM-dtF"/>
                             <constraint firstItem="Do4-aa-BbT" firstAttribute="leading" secondItem="KUH-ed-g0o" secondAttribute="trailing" constant="8" id="jEp-vX-1FE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Do4-aa-BbT" secondAttribute="trailing" priority="250" constant="103.5" id="m4x-c4-2go"/>
                             <constraint firstItem="IMZ-Fn-nKE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="qpn-QS-XuH"/>
                             <constraint firstItem="8h6-iI-teR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="st2-UJ-yf7"/>
                             <constraint firstItem="KUH-ed-g0o" firstAttribute="leading" secondItem="lyK-ZK-3VO" secondAttribute="leading" id="va0-N7-Nek"/>
@@ -148,6 +149,7 @@
                                             <constraints>
                                                 <constraint firstItem="qC1-Tv-oXQ" firstAttribute="centerY" secondItem="rcj-Ii-U5h" secondAttribute="centerY" id="UDM-y8-fh9"/>
                                                 <constraint firstItem="qC1-Tv-oXQ" firstAttribute="height" secondItem="rcj-Ii-U5h" secondAttribute="height" multiplier="0.75" id="hlY-CW-YvM"/>
+                                                <constraint firstAttribute="trailing" secondItem="CJx-TW-P14" secondAttribute="trailing" priority="250" constant="242.5" id="lRn-yl-6Ok"/>
                                                 <constraint firstItem="CJx-TW-P14" firstAttribute="leading" secondItem="qC1-Tv-oXQ" secondAttribute="trailing" constant="24" id="oae-h0-gJD"/>
                                                 <constraint firstItem="qC1-Tv-oXQ" firstAttribute="leading" secondItem="rcj-Ii-U5h" secondAttribute="leading" constant="16" id="tXz-pU-NkH"/>
                                                 <constraint firstItem="CJx-TW-P14" firstAttribute="centerY" secondItem="rcj-Ii-U5h" secondAttribute="centerY" id="toj-Mx-gQ5"/>
@@ -180,7 +182,7 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="9Td-W6-FBd">
+                            <barButtonItem image="iconAddLocation" id="9Td-W6-FBd">
                                 <connections>
                                     <action selector="handleAddLocationButtonTap:" destination="lCb-aS-swr" id="iWk-DP-wCq"/>
                                 </connections>
@@ -367,15 +369,16 @@
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="WX3-KF-aRV">
                                         <rect key="frame" x="24" y="14" width="20" height="20"/>
+                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </activityIndicatorView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Downloading Student Locations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BY7-lR-OST">
                                         <rect key="frame" x="91.5" y="16" width="192" height="16"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.18431372549019609" green="0.20784313725490194" blue="0.25882352941176467" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="WX3-KF-aRV" firstAttribute="centerY" secondItem="AqB-cz-wyU" secondAttribute="centerY" id="HSY-47-YfZ"/>
                                     <constraint firstAttribute="height" constant="48" id="OL9-ke-xte"/>
@@ -404,7 +407,7 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="mli-cg-Pb8">
+                            <barButtonItem image="iconAddLocation" id="mli-cg-Pb8">
                                 <connections>
                                     <action selector="handleAddLocationButtonTap:" destination="QKJ-qL-I9b" id="ObO-RP-Uv6"/>
                                 </connections>
@@ -447,11 +450,11 @@
             </objects>
             <point key="canvasLocation" x="865" y="27"/>
         </scene>
-        <!--Map-->
+        <!--Navigation Controller-->
         <scene sceneID="rDm-Uv-MjE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zgY-G8-wQq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" id="dHc-za-ufa"/>
+                    <tabBarItem key="tabBarItem" title="" image="iconMap" id="dHc-za-ufa"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ptO-dq-ffN">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -466,11 +469,11 @@
             </objects>
             <point key="canvasLocation" x="1813.5999999999999" y="-305.39730134932535"/>
         </scene>
-        <!--Table-->
+        <!--Navigation Controller-->
         <scene sceneID="lzP-1b-Mqq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="h5l-BU-QFO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Table" id="ym2-eh-ka3"/>
+                    <tabBarItem key="tabBarItem" title="" image="iconList" id="ym2-eh-ka3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KbD-li-L0M">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -505,6 +508,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="iconAddLocation" width="72" height="72"/>
+        <image name="iconList" width="72" height="72"/>
+        <image name="iconMap" width="72" height="72"/>
         <image name="logo" width="1878.2608642578125" height="1878.2608642578125"/>
     </resources>
     <inferredMetricsTieBreakers>

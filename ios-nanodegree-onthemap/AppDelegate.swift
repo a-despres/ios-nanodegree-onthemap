@@ -18,6 +18,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let prestigeBlue = UIColor(red: 47/255, green: 53/255, blue: 66/255, alpha: 1)
+        let peace = UIColor(red: 164/255, green: 176/255, blue: 190/255, alpha: 1)
+        let grisaille = UIColor(red: 87/255, green: 96/255, blue: 111/255, alpha: 1)
+        let white = UIColor.white
+        
+        let navigationBarAppearance = UINavigationBar.appearance()
+        navigationBarAppearance.barTintColor = prestigeBlue
+        navigationBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: peace, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 19, weight: .regular)]
+        navigationBarAppearance.tintColor = white
+        
+        let tabBarAppearance = UITabBar.appearance()
+        tabBarAppearance.barTintColor = prestigeBlue
+        tabBarAppearance.tintColor = white
+        tabBarAppearance.unselectedItemTintColor = grisaille
+        
         return true
     }
 
