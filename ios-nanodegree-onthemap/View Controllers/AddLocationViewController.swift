@@ -16,6 +16,7 @@ class AddLocationViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var findLocationButton: UIButton!
     
     // MARK: - IBActions
     @IBAction func handleCancelButtonTap(_ sender: UIBarButtonItem) {
@@ -29,6 +30,10 @@ class AddLocationViewController: UIViewController {
     // MARK: - View Controller
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Change appearance of find location button and text field
+        locationTextField.layer.cornerRadius = 6
+        findLocationButton.layer.cornerRadius = 6
     }
     
     // MARK: - Navigation

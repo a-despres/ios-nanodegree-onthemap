@@ -16,6 +16,11 @@ class ConfirmLocationViewController: UIViewController {
     public var placemark: CLPlacemark?
     
     // MARK: - IBOutlets
+    @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var finishButton: UIButton!
+    @IBOutlet weak var iconContainerView: UIView!
+    @IBOutlet weak var iconView: UIImageView!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     @IBOutlet weak var linkTextField: UITextField!
     @IBOutlet weak var mapView: MKMapView!
     
@@ -65,13 +70,39 @@ class ConfirmLocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // stop activity indicator
+        indicatorView.stopAnimating()
+        
+        // modify appearance of icon container view
+        iconContainerView.layer.cornerRadius = iconContainerView.frame.height / 2
+        
+        // modify appearance of card view
+        cardView.layer.cornerRadius = 16
+        
+        // modify appearance of finish button
+        finishButton.layer.cornerRadius = 8
+        
+        // place pin and center map
         if let location = placemark?.location {
             let pin = MKPointAnnotation()
             pin.coordinate = location.coordinate
 
-            self.mapView.setCenter(location.coordinate, animated: true)
+            self.mapView.setCenter(pin.coordinate, animated: false)
+            self.mapView.setVisibleMapRect(self.mapView.visibleMapRect, edgePadding: UIEdgeInsets(top: -0.05, left: 0, bottom: 0, right: 0), animated: false)
+
             self.mapView.camera.altitude = 4096
             self.mapView.addAnnotation(pin)
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        // add gradient to map view as mask
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = mapView.bounds
+        gradientLayer.colors = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.clear.cgColor]
+        gradientLayer.locations = [0, 0.3, 0.85, 1]
+        mapView.layer.mask = gradientLayer
     }
 }
