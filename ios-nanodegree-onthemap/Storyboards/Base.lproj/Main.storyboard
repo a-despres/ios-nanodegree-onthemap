@@ -244,19 +244,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you studying today?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGs-iN-T9o">
+                                <rect key="frame" x="16" y="104.5" width="343" height="100.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="42"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="UTt-7G-c5G">
-                                <rect key="frame" x="59.5" y="237.5" width="256" height="256"/>
+                                <rect key="frame" x="75" y="253" width="225" height="225"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="UTt-7G-c5G" secondAttribute="height" multiplier="1:1" id="Rkr-mk-Tkr"/>
-                                    <constraint firstAttribute="height" constant="256" id="qQP-0g-K8V"/>
+                                    <constraint firstAttribute="width" secondItem="UTt-7G-c5G" secondAttribute="height" multiplier="1:1" id="FLa-KY-GS9"/>
                                 </constraints>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for a place or address" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="4zr-dY-RM5">
+                                <rect key="frame" x="16" y="519" width="343" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="5Ab-zl-SZL"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXC-gU-9vV">
-                                <rect key="frame" x="16" y="595" width="343" height="48"/>
+                                <rect key="frame" x="16" y="581" width="343" height="46"/>
                                 <color key="backgroundColor" red="0.4823529411764706" green="0.92941176470588238" blue="0.62352941176470589" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="wA1-lB-waK"/>
+                                    <constraint firstAttribute="height" constant="46" id="f7v-MA-otI"/>
                                 </constraints>
                                 <color key="tintColor" red="0.18431372549019609" green="0.20784313725490194" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="FIND"/>
@@ -264,35 +278,26 @@
                                     <action selector="handleFindLocationButtonTap:" destination="I0R-PI-ku7" eventType="touchUpInside" id="Zah-Kk-lVb"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for a place or address" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="4zr-dY-RM5">
-                                <rect key="frame" x="16" y="539" width="343" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="YUg-Hd-0Nu"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you studying today?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGs-iN-T9o">
-                                <rect key="frame" x="48" y="112" width="279" height="86"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="CSS-RZ-gjc">
+                                <rect key="frame" x="169" y="458" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.18431372549019609" green="0.20784313725490194" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="iEm-rf-NG4" firstAttribute="trailing" secondItem="QGs-iN-T9o" secondAttribute="trailing" constant="48" id="2MV-da-5o2"/>
-                            <constraint firstItem="4zr-dY-RM5" firstAttribute="leading" secondItem="iEm-rf-NG4" secondAttribute="leading" constant="16" id="9Ix-Sz-WK3"/>
-                            <constraint firstItem="OXC-gU-9vV" firstAttribute="top" secondItem="4zr-dY-RM5" secondAttribute="bottom" constant="8" id="9NP-gf-jSB"/>
-                            <constraint firstItem="iEm-rf-NG4" firstAttribute="trailing" secondItem="4zr-dY-RM5" secondAttribute="trailing" constant="16" id="B7j-io-aDK"/>
-                            <constraint firstItem="UTt-7G-c5G" firstAttribute="centerY" secondItem="iEm-rf-NG4" secondAttribute="centerY" id="BtU-fF-nLs"/>
-                            <constraint firstItem="QGs-iN-T9o" firstAttribute="top" secondItem="iEm-rf-NG4" secondAttribute="top" constant="48" id="GEI-Kx-Ig1"/>
-                            <constraint firstItem="QGs-iN-T9o" firstAttribute="leading" secondItem="iEm-rf-NG4" secondAttribute="leading" constant="48" id="PYx-58-LAy"/>
-                            <constraint firstItem="UTt-7G-c5G" firstAttribute="centerX" secondItem="iEm-rf-NG4" secondAttribute="centerX" id="TPT-XX-DfN"/>
-                            <constraint firstItem="OXC-gU-9vV" firstAttribute="leading" secondItem="iEm-rf-NG4" secondAttribute="leading" constant="16" id="TgO-Zm-1ou"/>
-                            <constraint firstItem="iEm-rf-NG4" firstAttribute="bottom" secondItem="OXC-gU-9vV" secondAttribute="bottom" constant="24" id="nZK-65-ws8"/>
-                            <constraint firstItem="iEm-rf-NG4" firstAttribute="trailing" secondItem="OXC-gU-9vV" secondAttribute="trailing" constant="16" id="xST-s3-jlX"/>
+                            <constraint firstItem="OXC-gU-9vV" firstAttribute="top" secondItem="4zr-dY-RM5" secondAttribute="bottom" constant="16" id="48i-GG-sWU"/>
+                            <constraint firstItem="iEm-rf-NG4" firstAttribute="trailing" secondItem="QGs-iN-T9o" secondAttribute="trailing" constant="16" id="7at-nJ-kdb"/>
+                            <constraint firstItem="iEm-rf-NG4" firstAttribute="trailing" secondItem="4zr-dY-RM5" secondAttribute="trailing" constant="16" id="FJq-F5-RY1"/>
+                            <constraint firstItem="UTt-7G-c5G" firstAttribute="centerY" secondItem="iEm-rf-NG4" secondAttribute="centerY" id="Fkk-Uc-B3P"/>
+                            <constraint firstItem="QGs-iN-T9o" firstAttribute="leading" secondItem="iEm-rf-NG4" secondAttribute="leading" constant="16" id="VmE-Rt-fvG"/>
+                            <constraint firstItem="4zr-dY-RM5" firstAttribute="top" secondItem="CSS-RZ-gjc" secondAttribute="bottom" constant="24" id="X5n-vk-5kw"/>
+                            <constraint firstItem="OXC-gU-9vV" firstAttribute="leading" secondItem="iEm-rf-NG4" secondAttribute="leading" constant="16" id="f2K-Lv-r6i"/>
+                            <constraint firstItem="iEm-rf-NG4" firstAttribute="bottom" secondItem="OXC-gU-9vV" secondAttribute="bottom" constant="40" id="hQN-4r-Whg"/>
+                            <constraint firstItem="iEm-rf-NG4" firstAttribute="trailing" secondItem="OXC-gU-9vV" secondAttribute="trailing" constant="16" id="mrk-m0-hr6"/>
+                            <constraint firstItem="CSS-RZ-gjc" firstAttribute="centerX" secondItem="iEm-rf-NG4" secondAttribute="centerX" id="nGe-48-l5I"/>
+                            <constraint firstItem="UTt-7G-c5G" firstAttribute="width" secondItem="cb9-bj-HcV" secondAttribute="width" multiplier="0.6" id="pJ2-sn-rhC"/>
+                            <constraint firstItem="4zr-dY-RM5" firstAttribute="leading" secondItem="iEm-rf-NG4" secondAttribute="leading" constant="16" id="rQO-9X-9YG"/>
+                            <constraint firstItem="UTt-7G-c5G" firstAttribute="top" secondItem="QGs-iN-T9o" secondAttribute="bottom" constant="48" id="uEL-b2-t6W"/>
+                            <constraint firstItem="UTt-7G-c5G" firstAttribute="centerX" secondItem="iEm-rf-NG4" secondAttribute="centerX" id="wDt-yb-rra"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iEm-rf-NG4"/>
                     </view>
@@ -305,13 +310,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="findLocationButton" destination="OXC-gU-9vV" id="bEb-Vu-zVE"/>
+                        <outlet property="indicatorView" destination="CSS-RZ-gjc" id="2W7-pn-9d1"/>
                         <outlet property="locationTextField" destination="4zr-dY-RM5" id="NkJ-IK-lzQ"/>
                         <segue destination="iAt-CX-Ofy" kind="show" identifier="findLocation" id="FUu-Oc-neH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gtn-PG-PlX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4391" y="59"/>
+            <point key="canvasLocation" x="4389.6000000000004" y="58.920539730134934"/>
         </scene>
         <!--Share Location-->
         <scene sceneID="vxo-cD-HYq">

@@ -15,6 +15,7 @@ class AddLocationViewController: UIViewController {
     private let geocoder = CLGeocoder()
     
     // MARK: - IBOutlets
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var findLocationButton: UIButton!
     
@@ -24,6 +25,10 @@ class AddLocationViewController: UIViewController {
     }
     
     @IBAction func handleFindLocationButtonTap(_ sender: UIButton) {
+        // Enable the activity indicator and disable find button
+        prepareUIForNetworkRequest()
+        
+        // Attempt to find location from string
         geocodeLocation(locationTextField.text)
     }
     
@@ -31,12 +36,69 @@ class AddLocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // stop activity indicator
+        indicatorView.stopAnimating()
+        
         // Change appearance of find location button and text field
-        locationTextField.layer.cornerRadius = 6
-        findLocationButton.layer.cornerRadius = 6
+        locationTextField.layer.cornerRadius = 8
+        findLocationButton.layer.cornerRadius = 8
+    }
+}
+
+// MARK: - Error Handling
+extension AddLocationViewController {
+    
+    /**
+     Display a UIAlertView for the given error.
+     - parameter error: The error to be parsed and displayed.
+     */
+    private func displayAlertForError(_ error: Error) {
+        if let error = error as? CLError {
+            present(ErrorAlert.forLocationError(error), animated: true, completion: nil)
+        } else if let error = error as? URLError {
+            present(ErrorAlert.forURLError(error), animated: true, completion: nil)
+        } else {
+            present(ErrorAlert.forUnknownError(error), animated: true, completion: nil)
+        }
+    }
+}
+
+// MARK: - Geocoding of Location
+extension AddLocationViewController {
+    
+    /**
+     Geocode the user's location based on the given location string.
+     - parameter location: The string to be geocoded.
+     */
+    private func geocodeLocation(_ location: String?) {
+        if let location = location {
+            geocoder.geocodeAddressString(location, completionHandler: handleGeocodeAddressStringResponse(_:error:))
+        }
     }
     
-    // MARK: - Navigation
+    /**
+     Handle the response or error from the call to geocodeLocation(_:).
+     - parameter response: An array of CLPlacemark objects returned by the call to geocodeAddressString(_:completionHandler:)
+     - parameter error: The error to be parsed and displayed.
+     */
+    private func handleGeocodeAddressStringResponse(_ response: [CLPlacemark]?, error: Error?) {
+        // reset UI now that we're back from making a network request
+        resetUIAfterNetworkRequest()
+        
+        // handle error if necessary, otherwise handle the response
+        if let error = error {
+            displayAlertForError(error)
+        } else {
+            if let response = response {
+                let placemark = response.first
+                performSegue(withIdentifier: "findLocation", sender: placemark)
+            }
+        }
+    }
+}
+
+// MARK: - Navigation
+extension AddLocationViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "findLocation" {
             guard let vc = segue.destination as? ConfirmLocationViewController else { return }
@@ -46,27 +108,18 @@ class AddLocationViewController: UIViewController {
     }
 }
 
-// MARK: - Geocoding of Location
+// MARK: - Update UI
 extension AddLocationViewController {
-    private func geocodeLocation(_ location: String?) {
-        if let location = location {
-            geocoder.geocodeAddressString(location, completionHandler: handleGeocodeAddressStringResponse(placemarks:error:))
-        }
+    
+    /// Setup the UI to show that a network request is in progress.
+    private func prepareUIForNetworkRequest() {
+        findLocationButton.isEnabled = false
+        indicatorView.startAnimating()
     }
     
-    private func handleGeocodeAddressStringResponse(placemarks: [CLPlacemark]?, error: Error?) {
-        guard let placemark = placemarks?.first else {
-            displayGeocodeError(error)
-            return
-        }
-        performSegue(withIdentifier: "findLocation", sender: placemark)
-    }
-    
-    private func displayGeocodeError(_ error: Error?) {
-        if let error = error as? CLError {
-            let alertController = UIAlertController(title: "Something went wrong...", message: error.localizedDescription, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
-            present(alertController, animated: true, completion: nil)
-        }
+    /// Setup the UI to show that the network request is completed.
+    private func resetUIAfterNetworkRequest() {
+        findLocationButton.isEnabled = true
+        indicatorView.stopAnimating()
     }
 }

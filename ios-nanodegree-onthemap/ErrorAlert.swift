@@ -7,16 +7,24 @@
 //
 
 import UIKit
+import MapKit
 
 struct ErrorAlert {
     private static let dismissAction: UIAlertAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
     
     private enum Message {
+        case location(Int?)
         case login(String?)
         case url(Int?)
         
         var stringValue: String {
             switch self {
+            case .location(let code):
+                switch code {
+                case 2: return "A Network Error Occurred"
+                case 8, 9: return "Location Not Found"
+                default: return "Location Unknown"
+                }
             case .login(let parameter):
                 switch parameter {
                 case "udacity.password": return "Invalid or Missing Password"
@@ -33,8 +41,22 @@ struct ErrorAlert {
     }
     
     private enum Title: String {
+        case location = "Location Error"
         case login = "Could Not Login"
         case url = "Network Error"
+    }
+    
+    static func forLocationError(_ error: CLError) -> UIAlertController {
+        // Define alert view
+        let alertController = UIAlertController(title: "Error", message: "", preferredStyle: .alert)
+        
+        // Add error specific title and message
+        alertController.title = Title.location.rawValue
+        alertController.message = Message.location(error.code.rawValue).stringValue
+        
+        // Add dismiss button and return
+        alertController.addAction(dismissAction)
+        return alertController
     }
 
     static func forStatus(_ status: Int, parameter: String? = nil) -> UIAlertController {
