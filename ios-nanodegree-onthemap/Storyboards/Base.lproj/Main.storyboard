@@ -31,6 +31,9 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="RaX-zi-Wtu">
+                                <rect key="frame" x="169" y="296" width="37" height="37"/>
+                            </activityIndicatorView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-Mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8h6-iI-teR">
                                 <rect key="frame" x="48" y="349" width="279" height="48"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
@@ -91,7 +94,9 @@
                             <constraint firstItem="IMZ-Fn-nKE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="128" id="Ysy-ED-rYd"/>
                             <constraint firstItem="eyk-Xu-lJq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="caS-qv-DlJ"/>
                             <constraint firstItem="KUH-ed-g0o" firstAttribute="top" secondItem="lyK-ZK-3VO" secondAttribute="bottom" constant="16" id="dWs-Dd-Mlw"/>
+                            <constraint firstItem="8h6-iI-teR" firstAttribute="top" secondItem="RaX-zi-Wtu" secondAttribute="bottom" constant="16" id="fHe-bk-9Uu"/>
                             <constraint firstItem="8h6-iI-teR" firstAttribute="top" secondItem="ZJi-Vf-6kT" secondAttribute="bottom" constant="16" id="fq9-mM-dtF"/>
+                            <constraint firstItem="RaX-zi-Wtu" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hgk-jO-YkC"/>
                             <constraint firstItem="Do4-aa-BbT" firstAttribute="leading" secondItem="KUH-ed-g0o" secondAttribute="trailing" constant="8" id="jEp-vX-1FE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Do4-aa-BbT" secondAttribute="trailing" priority="250" constant="103.5" id="m4x-c4-2go"/>
                             <constraint firstItem="IMZ-Fn-nKE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="qpn-QS-XuH"/>
@@ -104,7 +109,9 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="8h6-iI-teR" id="iiF-x2-LKo"/>
+                        <outlet property="indicatorView" destination="RaX-zi-Wtu" id="gKA-y1-VMi"/>
                         <outlet property="loginButton" destination="lyK-ZK-3VO" id="gIM-9I-Ncb"/>
+                        <outlet property="loginLabel" destination="ZJi-Vf-6kT" id="U38-eb-bwR"/>
                         <outlet property="passwordTextField" destination="eyk-Xu-lJq" id="evb-Ml-Fii"/>
                         <segue destination="8zL-DF-l8D" kind="show" identifier="loginSuccessful" id="icO-j6-K7p"/>
                     </connections>

@@ -124,7 +124,7 @@
 			children = (
 				A15E911821D1466A0005CAF3 /* AddLocationViewController.swift */,
 				A15E911A21D148FB0005CAF3 /* ConfirmLocationViewController.swift */,
-				A15E910021D142E80005CAF3 /* LoginViewController.swift */,
+				A1E5D4D521DE7CDC00C21ECC /* LoginViewController */,
 				A126A75B21D1FAA000C0FA54 /* MapViewController */,
 				A15E911C21D153E20005CAF3 /* TableViewController */,
 			);
@@ -168,6 +168,14 @@
 				A1E6E5F121D9BDB9003367A8 /* PutStudentLocation.swift */,
 			);
 			path = OnTheMapAPI;
+			sourceTree = "<group>";
+		};
+		A1E5D4D521DE7CDC00C21ECC /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A15E910021D142E80005CAF3 /* LoginViewController.swift */,
+			);
+			path = LoginViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
