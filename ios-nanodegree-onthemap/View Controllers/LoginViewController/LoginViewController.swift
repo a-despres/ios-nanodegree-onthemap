@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
 
     // MARK: - Properties
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var isKeyboardActive = false
     
     // MARK: - IBOutlets
     @IBOutlet weak var emailTextField: UITextField!
@@ -38,6 +39,10 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // assign text field delegate
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
         // stop activity indicator
         indicatorView.stopAnimating()
         
@@ -55,6 +60,16 @@ class LoginViewController: UIViewController {
         loginButton.layer.borderColor = UIColor.white.cgColor
         loginButton.layer.borderWidth = 2
         loginButton.layer.cornerRadius = 8
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        subscribeToKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
     }
 }
 
