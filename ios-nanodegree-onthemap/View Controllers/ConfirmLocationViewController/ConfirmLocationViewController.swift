@@ -57,6 +57,9 @@ class ConfirmLocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // assign text field delegate
+        linkTextField.delegate = self
+        
         // stop activity indicator
         indicatorView.stopAnimating()
         
@@ -82,6 +85,16 @@ class ConfirmLocationViewController: UIViewController {
         gradientLayer.colors = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.clear.cgColor]
         gradientLayer.locations = [0, 0.3, 0.85, 1]
         mapView.layer.mask = gradientLayer
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        subscribeToKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
     }
 }
 
