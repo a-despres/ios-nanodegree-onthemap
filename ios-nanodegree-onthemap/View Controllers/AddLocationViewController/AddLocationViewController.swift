@@ -36,12 +36,25 @@ class AddLocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // set text field delegate
+        locationTextField.delegate = self
+        
         // stop activity indicator
         indicatorView.stopAnimating()
         
         // Change appearance of find location button and text field
         locationTextField.layer.cornerRadius = 8
         findLocationButton.layer.cornerRadius = 8
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        subscribeToKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
     }
 }
 

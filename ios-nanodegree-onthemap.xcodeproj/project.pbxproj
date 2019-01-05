@@ -24,6 +24,7 @@
 		A15E912521D187EF0005CAF3 /* OnTheMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E912421D187EF0005CAF3 /* OnTheMap.swift */; };
 		A15E912721D18E300005CAF3 /* StudentLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15E912621D18E300005CAF3 /* StudentLocations.swift */; };
 		A1DED9DF21DFBE6F007B9CCF /* LoginViewController+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DED9DE21DFBE6F007B9CCF /* LoginViewController+UITextFieldDelegate.swift */; };
+		A1DED9E221E02AFF007B9CCF /* AddLocationViewController+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DED9E121E02AFF007B9CCF /* AddLocationViewController+UITextFieldDelegate.swift */; };
 		A1E6E5DE21D94D42003367A8 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E6E5DD21D94D42003367A8 /* ErrorAlert.swift */; };
 		A1E6E5E021D97CCA003367A8 /* PostStudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E6E5DF21D97CCA003367A8 /* PostStudentLocation.swift */; };
 		A1E6E5E421D98B70003367A8 /* UdacityLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E6E5E321D98B70003367A8 /* UdacityLogin.swift */; };
@@ -57,6 +58,7 @@
 		A15E912421D187EF0005CAF3 /* OnTheMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMap.swift; sourceTree = "<group>"; };
 		A15E912621D18E300005CAF3 /* StudentLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocations.swift; sourceTree = "<group>"; };
 		A1DED9DE21DFBE6F007B9CCF /* LoginViewController+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
+		A1DED9E121E02AFF007B9CCF /* AddLocationViewController+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddLocationViewController+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
 		A1E6E5DD21D94D42003367A8 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		A1E6E5DF21D97CCA003367A8 /* PostStudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStudentLocation.swift; sourceTree = "<group>"; };
 		A1E6E5E321D98B70003367A8 /* UdacityLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityLogin.swift; sourceTree = "<group>"; };
@@ -124,7 +126,7 @@
 		A15E911221D145580005CAF3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A15E911821D1466A0005CAF3 /* AddLocationViewController.swift */,
+				A1DED9E021E02AD6007B9CCF /* AddLocationViewController */,
 				A15E911A21D148FB0005CAF3 /* ConfirmLocationViewController.swift */,
 				A1E5D4D521DE7CDC00C21ECC /* LoginViewController */,
 				A126A75B21D1FAA000C0FA54 /* MapViewController */,
@@ -170,6 +172,15 @@
 				A1E6E5F121D9BDB9003367A8 /* PutStudentLocation.swift */,
 			);
 			path = OnTheMapAPI;
+			sourceTree = "<group>";
+		};
+		A1DED9E021E02AD6007B9CCF /* AddLocationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A15E911821D1466A0005CAF3 /* AddLocationViewController.swift */,
+				A1DED9E121E02AFF007B9CCF /* AddLocationViewController+UITextFieldDelegate.swift */,
+			);
+			path = AddLocationViewController;
 			sourceTree = "<group>";
 		};
 		A1E5D4D521DE7CDC00C21ECC /* LoginViewController */ = {
@@ -264,6 +275,7 @@
 				A126A75F21D1FB1C00C0FA54 /* PinAnnotation.swift in Sources */,
 				A1E6E5EE21D99969003367A8 /* DeleteSession.swift in Sources */,
 				A15E912721D18E300005CAF3 /* StudentLocations.swift in Sources */,
+				A1DED9E221E02AFF007B9CCF /* AddLocationViewController+UITextFieldDelegate.swift in Sources */,
 				A1E6E5E821D9990A003367A8 /* Session.swift in Sources */,
 				A15E910121D142E80005CAF3 /* LoginViewController.swift in Sources */,
 				A1E6E5E421D98B70003367A8 /* UdacityLogin.swift in Sources */,
