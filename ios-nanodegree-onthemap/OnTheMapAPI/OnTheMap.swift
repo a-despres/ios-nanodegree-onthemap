@@ -13,6 +13,7 @@ class OnTheMap {
     private static let apiKey = "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"
     private static let decoder = JSONDecoder()
     private static let encoder = JSONEncoder()
+    private static var task: URLSessionDataTask?
     
     class func getStudentLocation(for uniqueKey: String, completion: @escaping (StudentLocations?, Error?) -> Void) {
         let parameters = "{\"uniqueKey\":\"\(uniqueKey)\"}".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
@@ -107,7 +108,8 @@ extension OnTheMap {
         request.addValue(applicationID, forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue(apiKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
         
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        task?.cancel()
+        task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard var data = data else {
                 completion(nil, error)
                 return
@@ -129,7 +131,7 @@ extension OnTheMap {
             }
         }
         
-        task.resume()
+        task?.resume()
     }
     
     private class func taskForPOSTRequest<RequestType: Encodable, ResponseType: Decodable>(url: URL, body: RequestType, response: ResponseType.Type, securedResponse: Bool = false, completion: @escaping (ResponseType?, Error?) -> Void) {
@@ -148,7 +150,8 @@ extension OnTheMap {
             return
         }
         
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        task?.cancel()
+        task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard var data = data else {
                 completion(nil, error)
                 return
@@ -158,9 +161,6 @@ extension OnTheMap {
                 let range = 5 ..< data.count
                 data = data.subdata(in: range)
             }
-            
-            // For Debug Purposes Only
-            print(String(data: data, encoding: .utf8))
             
             // Decode JSON to ResponseType
             do {
@@ -179,7 +179,7 @@ extension OnTheMap {
             }
         }
         
-        task.resume()
+        task?.resume()
     }
     
     private class func taskForDELETERequest<ResponseType: Decodable>(url: URL, response: ResponseType.Type, securedResponse: Bool = false, completion: @escaping (ResponseType?, Error?) -> Void) {
@@ -197,7 +197,8 @@ extension OnTheMap {
             print(xsrfCookie.value)
         }
         
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        task?.cancel()
+        task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard var data = data else {
                 completion(nil, error)
                 return
@@ -207,9 +208,6 @@ extension OnTheMap {
                 let range = 5 ..< data.count
                 data = data.subdata(in: range)
             }
-            
-            // For Debug Purposes Only
-            print(String(data: data, encoding: .utf8))
             
             // Decode JSON to ResponseType
             do {
@@ -222,7 +220,7 @@ extension OnTheMap {
             }
         }
         
-        task.resume()
+        task?.resume()
     }
     
     private class func taskForPUTRequest<RequestType: Encodable, ResponseType: Decodable>(url: URL, body: RequestType, response: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
@@ -240,7 +238,8 @@ extension OnTheMap {
             return
         }
         
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        task?.cancel()
+        task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data else {
                 completion(nil, error)
                 return
@@ -257,6 +256,6 @@ extension OnTheMap {
             }
         }
         
-        task.resume()
+        task?.resume()
     }
 }
