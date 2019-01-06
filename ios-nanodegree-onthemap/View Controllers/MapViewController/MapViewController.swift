@@ -63,7 +63,9 @@ class MapViewController: UIViewController {
         refreshButton.isEnabled = false
         
         // start download of student location data
-        OnTheMap.getStudentLocations(completion: handleGetStudentLocationsResponse(_:error:))
+        DispatchQueue.global(qos: .background).async {
+            OnTheMap.getStudentLocations(completion: self.handleGetStudentLocationsResponse(_:error:))
+        }
     }
 }
 
