@@ -28,7 +28,7 @@ class OnTheMap {
     }
     
     class func getStudentLocations(completion: @escaping (StudentLocations?, Error?) -> Void) {
-        let url = URL(string: "https://parse.udacity.com/parse/classes/StudentLocation?limit=100&order=updatedAt")
+        let url = URL(string: "https://parse.udacity.com/parse/classes/StudentLocation?limit=100&order=-updatedAt")
         taskForGETRequest(url: url!, response: StudentLocations.self) { (response, error) in
             if let response = response {
                 DispatchQueue.main.async { completion(response, nil) }

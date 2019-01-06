@@ -23,8 +23,7 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
         
         // display student location in cell
         if let studentLocations = appDelegate.studentLocations {
-            let studentName = "\(studentLocations[indexPath.row].firstName) \(studentLocations[indexPath.row].lastName)"
-            cell.nameLabel.text = studentName
+            cell.nameLabel.text = studentLocations[indexPath.row].name
         }
         
         return cell
