@@ -56,11 +56,11 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyK-ZK-3VO">
                                 <rect key="frame" x="48" y="461" width="279" height="48"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.4823529411764706" green="0.92941176470588238" blue="0.62352941176470589" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="UdN-tl-xm5"/>
                                 </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.18431372549019609" green="0.20784313725490194" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="LOGIN"/>
                                 <connections>
                                     <action selector="handleLoginButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ddt-HE-Le7"/>
@@ -82,7 +82,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.16078431372549018" green="0.50196078431372548" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.18431372549019609" green="0.20784313725490194" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="lyK-ZK-3VO" firstAttribute="top" secondItem="eyk-Xu-lJq" secondAttribute="bottom" constant="8" id="7JS-bi-7iw"/>
                             <constraint firstItem="Do4-aa-BbT" firstAttribute="centerY" secondItem="KUH-ed-g0o" secondAttribute="centerY" id="8gI-7N-85h"/>
@@ -587,10 +587,10 @@
     </scenes>
     <resources>
         <image name="globe" width="64" height="64"/>
-        <image name="iconAddLocation" width="72" height="72"/>
-        <image name="iconList" width="72" height="72"/>
-        <image name="iconMap" width="72" height="72"/>
-        <image name="iconStudentPin" width="72" height="72"/>
+        <image name="iconAddLocation" width="36" height="36"/>
+        <image name="iconList" width="36" height="36"/>
+        <image name="iconMap" width="36" height="36"/>
+        <image name="iconStudentPin" width="36" height="36"/>
         <image name="location" width="1024" height="1024"/>
         <image name="logo" width="1878.2608642578125" height="1878.2608642578125"/>
     </resources>
