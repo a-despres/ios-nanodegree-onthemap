@@ -206,7 +206,7 @@ extension TableViewController {
         // parse student location data or fail
         if let response = response {
             hideDownloadStatusView()
-            appDelegate.studentLocations = response
+            StudentLocations.shared = response
             tableView.reloadData()
         } else {
             hideDownloadStatusView()

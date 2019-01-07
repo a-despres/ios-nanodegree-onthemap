@@ -9,9 +9,10 @@
 import Foundation
 
 struct StudentLocations: Codable {
-    let results: [StudentLocation]
+    var results: [StudentLocation]
     var count: Int { return results.count }
     private var index = 0 // used in iterator
+    static var shared = StudentLocations()
     
     subscript(index: Int) -> StudentLocation {
         get {
@@ -21,6 +22,10 @@ struct StudentLocations: Codable {
     
     private enum CodingKeys: String, CodingKey {
         case results
+    }
+    
+    private init() {
+        self.results = []
     }
 }
 

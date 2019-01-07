@@ -10,7 +10,7 @@ import UIKit
 
 extension TableViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return appDelegate.studentLocations?.count ?? 0
+        return StudentLocations.shared.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -22,20 +22,16 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
         cell.selectedBackgroundView = customSelectedBackground
         
         // display student location in cell
-        if let studentLocations = appDelegate.studentLocations {
-            cell.nameLabel.text = studentLocations[indexPath.row].name
-        }
+        cell.nameLabel.text = StudentLocations.shared[indexPath.row].name
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let studentLocations = appDelegate.studentLocations {
-            guard let url = URL(string: studentLocations[indexPath.row].mediaURL) else { return }
-            UIApplication.shared.open(url, options: [:]) { [unowned self] success in
-                if !success {
-                    self.present(ErrorAlert.Alert.url.alertController, animated: true, completion: nil)
-                }
+        guard let url = URL(string: StudentLocations.shared[indexPath.row].mediaURL) else { return }
+        UIApplication.shared.open(url, options: [:]) { [unowned self] success in
+            if !success {
+                self.present(ErrorAlert.Alert.url.alertController, animated: true, completion: nil)
             }
         }
         tableView.deselectRow(at: indexPath, animated: false)

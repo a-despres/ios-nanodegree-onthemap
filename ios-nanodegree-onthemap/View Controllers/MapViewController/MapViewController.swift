@@ -200,7 +200,7 @@ extension MapViewController {
         // parse student location data or fail
         if let response = response {
             hideDownloadStatusView()
-            appDelegate.studentLocations = response
+            StudentLocations.shared = response
             addPinsToMap()
         } else {
             hideDownloadStatusView()
@@ -215,11 +215,8 @@ extension MapViewController {
     /// Parse the StudentLocations object and add pin annotations to the map.
     private func addPinsToMap() {
         
-        // get studentLocations from appDelegate or fail
-        guard let studentLocations = appDelegate.studentLocations else { return }
-        
         // iterate through studentLocations and add pins to map
-        for studentLocation in studentLocations {
+        for studentLocation in StudentLocations.shared {
             // pull values from studentLocation object...
             let student = "\(studentLocation.firstName) \(studentLocation.lastName)"
             let locationName = studentLocation.mapString

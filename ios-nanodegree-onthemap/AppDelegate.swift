@@ -12,7 +12,6 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    public var studentLocations: StudentLocations?
     public var userData: UserData?
     public var studentLocation: StudentLocation?
 
