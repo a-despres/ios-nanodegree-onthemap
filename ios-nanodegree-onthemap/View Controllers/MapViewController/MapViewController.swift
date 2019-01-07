@@ -13,6 +13,7 @@ class MapViewController: UIViewController {
     
     // MARK: - Properties
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var shouldDownloadData = true
     
     // MARK: - IBOutlets
     @IBOutlet weak var addLocationButton: UIBarButtonItem!
@@ -61,10 +62,16 @@ class MapViewController: UIViewController {
         
         // disable refresh button
         refreshButton.isEnabled = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         // start download of student location data
-        DispatchQueue.global(qos: .background).async {
-            OnTheMap.getStudentLocations(completion: self.handleGetStudentLocationsResponse(_:error:))
+        if shouldDownloadData {
+            DispatchQueue.global(qos: .background).async {
+                OnTheMap.getStudentLocations(completion: self.handleGetStudentLocationsResponse(_:error:))
+            }
         }
     }
 }
@@ -186,6 +193,9 @@ extension MapViewController {
     func handleGetStudentLocationsResponse(_ response: StudentLocations?, error: Error?) {
         // enable refresh button
         refreshButton.isEnabled = true
+        
+        // change download flag
+        shouldDownloadData = false
         
         // parse student location data or fail
         if let response = response {

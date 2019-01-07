@@ -53,7 +53,7 @@ class ConfirmLocationViewController: UIViewController {
         }
     }
     
-    // MARK: - VIew Controller
+    // MARK: - View Controller
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -154,6 +154,10 @@ extension ConfirmLocationViewController {
             displayAlertForError(error)
         } else {
             if let _ = response {
+                // set reload data bool
+                reloadDataOnPresentingViewController()
+                
+                // dismiss view
                 presentingViewController?.dismiss(animated: true, completion: nil)
             }
         }
@@ -173,6 +177,10 @@ extension ConfirmLocationViewController {
             displayAlertForError(error)
         } else {
             if let _ = response {
+                // set reload data bool
+                reloadDataOnPresentingViewController()
+                
+                // dismiss view
                 presentingViewController?.dismiss(animated: true, completion: nil)
             }
         }
@@ -194,5 +202,17 @@ extension ConfirmLocationViewController {
         finishButton.isEnabled = true
         iconView.isHidden = false
         indicatorView.stopAnimating()
+    }
+    
+    private func reloadDataOnPresentingViewController() {
+        if let tabBarVC = presentingViewController as? UITabBarController {
+            if let navBarVC = tabBarVC.selectedViewController as? UINavigationController {
+                if let mapVC = navBarVC.topViewController as? MapViewController {
+                    mapVC.shouldDownloadData = true
+                } else if let tableVC = navBarVC.topViewController as? TableViewController {
+                    tableVC.shouldDownloadData = true
+                }
+            }
+        }
     }
 }

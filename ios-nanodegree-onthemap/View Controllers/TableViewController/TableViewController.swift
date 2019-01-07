@@ -12,6 +12,7 @@ class TableViewController: UIViewController {
 
     // MARK: - Properties
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var shouldDownloadData = false
     
     // MARK: Constants
     let cellIdentifier = "cell"
@@ -61,6 +62,17 @@ class TableViewController: UIViewController {
         // FIXME: - Add Logic that checks for an active network request before hiding
         // hide download status view
         hideDownloadStatusView(animated: false)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // start download of student location data
+        if shouldDownloadData {
+            DispatchQueue.global(qos: .background).async {
+                OnTheMap.getStudentLocations(completion: self.handleGetStudentLocationsResponse(_:error:))
+            }
+        }
     }
 }
 
@@ -163,6 +175,9 @@ extension TableViewController {
     func handleGetStudentLocationResponse(_ response: StudentLocations?, error: Error?) {
         // enable the add location button
         addLocationButton.isEnabled = true
+        
+        // change download flag
+        shouldDownloadData = false
         
         // display an error if needed, otherwise procced with checking for an existing student location
         if let error = error {
